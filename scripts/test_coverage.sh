@@ -28,6 +28,7 @@ if [ $? -eq 0 ]; then
         lcov --remove coverage/lcov.info 'lib/**/*.g.dart' 'lib/**/*.freezed.dart' -o coverage/lcov.info
         genhtml coverage/lcov.info -o coverage/html
         echo -e "${GREEN}✨ Reporte listo en: coverage/html/index.html${NC}"
+        open coverage/html/index.html
     else
         echo -e "${YELLOW}⚠️  lcov/genhtml no instalados. Solo se generó lcov.info.${NC}"
         echo -e "Tip: En Windows puedes instalarlo con 'choco install lcov' o usar una extensión de VS Code."
