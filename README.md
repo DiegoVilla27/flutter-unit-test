@@ -1,17 +1,64 @@
-# flutter_unit_test
+# Flutter Unit Test Demo
 
-A new Flutter project.
+A specialized Flutter project designed to demonstrate best practices in **Unit Testing** and **Widget Testing**. This project follows a clean separation of concerns between business logic and UI components.
 
-## Getting Started
+## 🏗 Project Structure
 
-This project is a starting point for a Flutter application.
+- **`lib/counter.dart`**: Contains the `Counter` class (Business Logic). Isolated from Flutter UI for pure unit testing.
+- **`lib/main.dart`**: Contains the `HomeScreen` (UI Layer). Handles user interactions and updates based on the logic layer.
+- **`test/counter_test.dart`**: Unit tests for the logic layer.
+- **`test/widget_test.dart`**: Widget tests for the UI layer.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## 🧪 Testing Guide
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 1. Run All Tests
+To run all tests in the project:
+```bash
+flutter test
+```
+
+### 2. Run a Specific Test File
+```bash
+flutter test test/counter_test.dart
+```
+
+---
+
+## 📊 Code Coverage
+
+### Prerequisites (MacOS)
+To generate visual reports, you need `lcov` installed:
+```bash
+brew install lcov
+```
+
+### Generate Coverage Report
+1. **Run tests with coverage flag**:
+   ```bash
+   flutter test --coverage
+   ```
+   This generates a `coverage/lcov.info` file.
+
+2. **Generate HTML Report**:
+   ```bash
+   genhtml coverage/lcov.info -o coverage/html
+   ```
+
+3. **Open the Report**:
+   ```bash
+   open coverage/html/index.html
+   ```
+
+### Quick Visual Guide (VS Code)
+For an integrated experience, install the **"Flutter Coverage"** extension. 
+- It highlights covered lines in **green** and uncovered lines in **red** directly in the editor.
+- Click the **"Watch"** button in the bottom status bar to activate.
+
+---
+
+## 🚀 Key Learning Points
+- **Isolation**: Keep your logic in separate classes to make them 100% testable without mocking the Flutter framework.
+- **Coverage**: Aim for high coverage in the logic layer (100% is often achievable).
+- **Automation**: Use `flutter test --coverage` in your CI/CD pipelines to ensure code quality.
