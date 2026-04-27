@@ -54,10 +54,26 @@ brew install lcov
    open coverage/html/index.html
    ```
 
-### Quick Visual Guide (VS Code)
-For an integrated experience, install the **"Flutter Coverage"** extension. 
-- It highlights covered lines in **green** and uncovered lines in **red** directly in the editor.
-- Click the **"Watch"** button in the bottom status bar to activate.
+### ⚡️ Automated Scripts
+To simplify the process, we have added automation scripts:
+- **`scripts/test_coverage.sh`**: This script cleans old reports, runs tests with coverage, filters unnecessary files, and generates the HTML report in one go.
+  
+  **How to use:**
+  ```bash
+  chmod +x scripts/test_coverage.sh  # Only first time
+  ./scripts/test_coverage.sh
+  ```
+
+### 🛠 Visual Tools (VS Code)
+
+#### **Coverage Gutters**
+For a better developer experience, we recommend the **Coverage Gutters** extension.
+- **What it does**: Displays color-coded gutters in the editor to show which lines are covered by tests.
+- **How to use**:
+  1. Install "Coverage Gutters" from the VS Code Marketplace.
+  2. Ensure you have generated the `lcov.info` file (run the script or `flutter test --coverage`).
+  3. Click the **"Watch"** button in the bottom status bar or press `Shift + Cmd + 7` (Mac).
+  4. **Green** marks covered lines, **Red** marks uncovered ones.
 
 ---
 
