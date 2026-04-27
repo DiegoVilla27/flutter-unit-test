@@ -4,9 +4,12 @@ A specialized Flutter project designed to demonstrate best practices in **Unit T
 
 ## 🏗 Project Structure
 
-- **`lib/counter.dart`**: Contains the `Counter` class (Business Logic). Isolated from Flutter UI for pure unit testing.
-- **`lib/main.dart`**: Contains the `HomeScreen` (UI Layer). Handles user interactions and updates based on the logic layer.
+- **`lib/counter.dart`**: Contains the `Counter` class (Business Logic).
+- **`lib/user_repository.dart`**: Repository pattern for data fetching.
+- **`lib/api_client.dart`**: Abstract API client for dependency injection.
+- **`lib/main.dart`**: Contains the `HomeScreen` (UI Layer).
 - **`test/counter_test.dart`**: Unit tests for the logic layer.
+- **`test/user_repository_test.dart`**: Advanced tests with **Mocking**.
 - **`test/widget_test.dart`**: Widget tests for the UI layer.
 
 ---
@@ -59,6 +62,7 @@ For an integrated experience, install the **"Flutter Coverage"** extension.
 ---
 
 ## 🚀 Key Learning Points
-- **Isolation**: Keep your logic in separate classes to make them 100% testable without mocking the Flutter framework.
-- **Coverage**: Aim for high coverage in the logic layer (100% is often achievable).
-- **Automation**: Use `flutter test --coverage` in your CI/CD pipelines to ensure code quality.
+- **Isolation**: Keep your logic in separate classes to make them 100% testable.
+- **Mocking**: Use `mocktail` to simulate external dependencies (APIs, DBs) and test edge cases like 404s or network errors.
+- **Dependency Injection**: Inject your services/clients into repositories to make them swappable for testing.
+- **Asynchronous Testing**: Use `await` and `expectLater` to verify code that returns `Future` or `Stream`.
