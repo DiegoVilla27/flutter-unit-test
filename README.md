@@ -23,7 +23,13 @@ flutter test
 
 ### 2. Run a Specific Test File
 ```bash
-flutter test test/counter_test.dart
+flutter test test/screens/home/home_screen_test.dart
+```
+
+### 3. Run Integration Tests (E2E)
+These tests run the full app. You need a simulator or device connected:
+```bash
+flutter test integration_test/user_flow_test.dart
 ```
 
 ---
