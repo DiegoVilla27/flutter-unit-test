@@ -15,8 +15,8 @@ if [ -d "coverage" ]; then
 fi
 
 # 2. Ejecutar tests con el flag de coverage
-# Esto genera el archivo coverage/lcov.info
-flutter test --coverage
+# Se especifica 'lib' porque los tests fueron movidos a esa carpeta
+flutter test --coverage lib
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✅ Tests completados con éxito.${NC}"

@@ -1,6 +1,5 @@
-import 'dart:convert';
-import 'user_model.dart';
-import 'api_client.dart';
+import '../models/user_model.dart';
+import '../services/api_client.dart';
 
 class UserRepository {
   final ApiClient apiClient;
@@ -11,7 +10,12 @@ class UserRepository {
     final response = await apiClient.getRequest('/users/$id');
 
     if (response.statusCode == 200) {
-      return User.fromJson(jsonDecode(response.body));
+      // Dio automatically decodes JSON if the response is JSON
+      final data = response.data;
+      if (data is Map<String, dynamic>) {
+        return User.fromJson(data);
+      }
+      throw Exception('Invalid data format');
     } else {
       throw Exception('Failed to load user');
     }
