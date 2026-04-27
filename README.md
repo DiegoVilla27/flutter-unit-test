@@ -8,9 +8,8 @@ A specialized Flutter project designed to demonstrate best practices in **Unit T
 - **`lib/user_repository.dart`**: Repository pattern for data fetching.
 - **`lib/api_client.dart`**: Abstract API client for dependency injection.
 - **`lib/main.dart`**: Contains the `HomeScreen` (UI Layer).
-- **`test/counter_test.dart`**: Unit tests for the logic layer.
-- **`test/user_repository_test.dart`**: Advanced tests with **Mocking**.
-- **`test/widget_test.dart`**: Widget tests for the UI layer.
+- **`test/screens/home/`**: Widget tests for Home.
+- **`test/screens/users/`**: Widget and Repository tests for Users.
 
 ---
 

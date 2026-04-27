@@ -30,7 +30,7 @@ class _UsersScreenState extends State<UsersScreen> {
       });
     } catch (e) {
       setState(() {
-        _error = 'Error loading user';
+        _error = 'Error loading user $e';
         _isLoading = false;
       });
     }

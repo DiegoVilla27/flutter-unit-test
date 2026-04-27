@@ -16,7 +16,7 @@ fi
 
 # 2. Ejecutar tests con el flag de coverage
 # Se especifica 'lib' porque los tests fueron movidos a esa carpeta
-flutter test --coverage lib
+flutter test --coverage
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✅ Tests completados con éxito.${NC}"
@@ -25,7 +25,7 @@ if [ $? -eq 0 ]; then
     # Si usas inyección de dependencias o generación de código, esto limpia el reporte:
     if command -v lcov &> /dev/null; then
         echo -e "${BLUE}📊 Generando reporte HTML...${NC}"
-        lcov --remove coverage/lcov.info 'lib/**/*.g.dart' 'lib/**/*.freezed.dart' -o coverage/lcov.info
+        lcov --remove coverage/lcov.info 'lib/**/*.g.dart' 'lib/**/*.freezed.dart' -o coverage/lcov.info --ignore-errors unused
         genhtml coverage/lcov.info -o coverage/html
         echo -e "${GREEN}✨ Reporte listo en: coverage/html/index.html${NC}"
         open coverage/html/index.html

@@ -7,6 +7,9 @@ import '../screens/users/users_screen.dart';
 
 final _dio = Dio(BaseOptions(
   baseUrl: 'https://jsonplaceholder.typicode.com',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 ));
 
 final _userRepository = UserRepository(

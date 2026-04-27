@@ -50,6 +50,6 @@ void main() {
     await tester.pumpAndSettle();
 
     // Assert
-    expect(find.text('Error loading user'), findsOneWidget);
+    expect(find.textContaining('Error loading user'), findsOneWidget);
   });
 }

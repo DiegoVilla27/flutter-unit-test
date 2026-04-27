@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:dio/dio.dart';
-import '../services/api_client.dart';
-import 'user_repository.dart';
-import '../models/user_model.dart';
+import 'package:flutter_unit_test/screens/users/services/api_client.dart';
+import 'package:flutter_unit_test/screens/users/repository/user_repository.dart';
+import 'package:flutter_unit_test/screens/users/models/user_model.dart';
 
 class MockApiClient extends Mock implements ApiClient {}
 
