@@ -52,5 +52,20 @@ void main() {
       // Act & Assert
       expect(() => userRepository.getUser(2), throwsException);
     });
+
+    test('throws an exception if the data format is invalid', () async {
+      // Arrange
+      final response = Response(
+        requestOptions: RequestOptions(path: '/users/1'),
+        data: ['not', 'a', 'map'], // A list instead of a map
+        statusCode: 200,
+      );
+      
+      when(() => mockApiClient.getRequest('/users/1'))
+          .thenAnswer((_) async => response);
+
+      // Act & Assert
+      expect(() => userRepository.getUser(1), throwsException);
+    });
   });
 }
